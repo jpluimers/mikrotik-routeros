@@ -5,7 +5,7 @@ This repository contains stuff I collected over time to help me administer Mikro
 
 There is a README.rst per folder:
 
-:code:`scripts <scripts/README.rst>`_
--------------------------------------
+`scripts <scripts/README.rst>`_
+-------------------------------
 
 Scripting Examples
