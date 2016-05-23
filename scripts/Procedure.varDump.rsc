@@ -38,7 +38,7 @@
 }
 
 ## Examples:
-## /import scripts/Function.varDump.rsc
+## /import scripts/Procedure.varDump.rsc
 
 ## > $varDump value="12345"
 ## :typeof=str;len=5;$value=12345
