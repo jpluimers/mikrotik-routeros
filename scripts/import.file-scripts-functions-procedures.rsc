@@ -26,7 +26,7 @@
       :local logLine "Importing script: $fileSize bytes ($fileSizeType), type $fileType: '$fileName'"
       :put $logLine
       :log info $logLine
-      :put "/import $fileName"
+      /import $fileName
       :set $count ($count + 1)
     }
     :if ($count = 0) do={
