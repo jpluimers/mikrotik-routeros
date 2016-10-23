@@ -1,3 +1,4 @@
+/system script environment remove [ find where name="outputInfo" ];
 :global outputInfo do={
   ## outputs $value using both :put and :log info
   :put "info: $value"

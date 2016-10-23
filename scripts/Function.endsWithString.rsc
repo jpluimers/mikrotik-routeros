@@ -1,3 +1,4 @@
+/system script environment remove [ find where name="endsWithString" ];
 :global endsWithString do={
   ## returns true if $value ends with $subString
 

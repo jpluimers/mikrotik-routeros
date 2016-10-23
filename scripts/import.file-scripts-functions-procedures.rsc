@@ -5,7 +5,11 @@
 
 ## inspired by http://forum.mikrotik.com/viewtopic.php?t=75081#p477543 (Re: Functions and function parameters)
 
-## Match scripts in "scripts/" folder ending with ".rsc" and starting with "Function." or "Procedure."
+## Match scripts in `scripts/` folder ending with `.rsc` and starting with `Function.` or `Procedure.`
+
+## Run by copying this script into the `scripts/` folder then running this from the terminal:
+
+## `/import scripts/import.file-scripts-functions-procedures.rsc`
 
 ## Note in order to call a `:local` method from another method, it needs to be `:local` inside that other method.
 
@@ -38,6 +42,9 @@
 
   $importScriptsByPattern value=("^scripts/$value.*\\.rsc\$")
 }
+
+## start in the root so the outer `eval` in each function doesn't include the full path to where we were.
+/
 
 $importScriptsInScriptsDirectoryStartingWith value=("Function\\.")
 $importScriptsInScriptsDirectoryStartingWith value=("Procedure\\.")

@@ -1,3 +1,4 @@
+/system script environment remove [ find where name="stripInvalidHostNameCharactersFromString" ];
 :global stripInvalidHostNameCharactersFromString do={
   ## returns $value without invalid characters for a Hostname
   ## if $allowMultipleLabels is not nothing, then it also allows dots between labels
@@ -8,7 +9,7 @@
   ## for convenience, replace space and underscore with hyphen.
   ## string loop based on URL encoding in http://forum.mikrotik.com/viewtopic.php?t=84705
   :local result "";
-  ## set empty associative array: http://forum.mikrotik.com/viewtopic.php?p=418796&sid=52e10f322b216132a5fd8179bbbcf08a#p418796
+  ## set empty associative array: http://forum.mikrotik.com/viewtopic.php?p=418796#p549154
   :local convert ({})
   :if ([:typeof $allowMultipleLabels] != "nothing") do={
     # allow multiple labels in a host name

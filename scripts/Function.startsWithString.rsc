@@ -1,3 +1,4 @@
+/system script environment remove [ find where name="startsWithString" ];
 :global startsWithString do={
   ## returns true if $value starts with $subString
 

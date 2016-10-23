@@ -1,9 +1,10 @@
+/system script environment remove [ find where name="escapeString" ];
 ## First try at https://gist.github.com/jpluimers/f667af4696d2a6411be44df1eeda2c2f
 :global escapeString do={
   ## convert non-printable characters in $value to HEX-escaped compatible with the Scripting Language
   ## string loop based on URL encoding in http://forum.mikrotik.com/viewtopic.php?t=84705
   :local result "";
-## set empty associative array: http://forum.mikrotik.com/viewtopic.php?p=418796&sid=52e10f322b216132a5fd8179bbbcf08a#p418796
+## set empty associative array: http://forum.mikrotik.com/viewtopic.php?p=418796#p549154
   :local convert ({})
 ## special as this is non-printable as well
   :set ($convert->("\7F")) ("\\7F")

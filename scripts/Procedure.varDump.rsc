@@ -1,3 +1,5 @@
+:local scriptName "Procedure.varDump.rsc"
+/system script environment remove [ find where name="varDump" ];
 :global varDump do={
   ## for recursion
   :global varDump
@@ -8,12 +10,18 @@
 
   ## TODO: expand and add more examples from http://forum.mikrotik.com/viewtopic.php?t=91480
 
+  :local infoMessage "$scriptName testing for function existence; if you get `no such item` then one or more dependencies fail; test with `/system script environment print` if they are there."
+#  :put "info: $infoMessage"
+
+  /system script environment get escapeString
   :global escapeString
 
   :local typeOfValue [:typeof $value]
+  :local prefix ("$indent$name:typeof=$typeOfValue")
+
   :if ($typeOfValue = "str") do={
     :local valueLen [:len $value]
-    :put "$indent:typeof=$typeOfValue;len=$valueLen;\$value=$value"
+    :put "$prefix;len=$valueLen;\$value=$value"
     :local escaped [$escapeString value=$value]
     :if ($value != $escaped) do={
       :put "$indent\$value escaped='$escaped'"
@@ -21,7 +29,7 @@
   } else={
     :if ($typeOfValue = "array") do={
       :local valueLen [:len $value]
-      :put "$indent:typeof=$typeOfValue;len=$valueLen"
+      :put "$prefix;len=$valueLen"
       :foreach key,element in=$value do={
          $varDump value=$key indent=("  $indent")
         :local escapedKey [$escapeString value=("$key")]
@@ -29,9 +37,9 @@
       };
     } else={
       :if (($typeOfValue = "nothing") or ($typeOfValue = "nil")) do={
-        :put "$indent:typeof=$typeOfValue"
+        :put "$prefix"
       } else={
-        :put "$indent:typeof=$typeOfValue;\$value=$value"
+        :put "$prefix;\$value=$value"
       }
     }
   }
@@ -39,6 +47,12 @@
 
 ## Examples:
 ## /import scripts/Procedure.varDump.rsc
+
+## > $varDump value="12345" name="foo"
+## foo:typeof=str;len=5;$value=12345
+
+## > $varDump value="12345"
+## :typeof=str;len=5;$value=12345
 
 ## > $varDump value="12345"
 ## :typeof=str;len=5;$value=12345
