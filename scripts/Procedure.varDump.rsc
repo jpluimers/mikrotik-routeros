@@ -4,7 +4,8 @@
   ## for recursion
   :global varDump
   ## performs various :put with information of $value
-  ## indents output with $indent
+  ## indents output with parameter $indent
+  ## appends indent with parameter $name
   ## inspired by http://php.net/manual/en/function.var-dump.php but RouterOS does not allow underscores in variables and functions
   ## requires Function.escapeString.rsc with function escapeString
 

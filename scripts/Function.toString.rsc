@@ -1,6 +1,6 @@
 :local scriptName "Function.toString.rsc"
 /system script environment remove [ find where name="toString" ];
-## First try at https://gist.github.com/jpluimers/f667af4696d2a6411be44df1eeda2c2f
+
 :global toString do={
   ## for recursion
   :global toString;
